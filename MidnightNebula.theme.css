@@ -1,4 +1,15 @@
 /**
+ * @name Silvernium iOS 26 Liquid Glass
+ * @author silvernium
+ * @version 4.1.0
+ * @description Modular Silvernium iOS 26-inspired deep-blue liquid glass theme for Vencord.
+ */
+
+@import url("./css/00-settings.css");
+@import url("./css/10-layout.css");
+@import url("./css/20-interactions.css");
+@import url("./css/30-branding.css");
+@import url("./css/40-accessibility.css");
  * @name ClearVision iOS 26 Liquid Glass
  * @author silvernium + ClearVision Team
  * @version 3.1.0
