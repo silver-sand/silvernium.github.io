@@ -1,6 +1,8 @@
 /**
  * @name Silvernium iOS 26 Liquid Glass
  * @author silvernium
+ * @version 5.3.0
+ * @description Deep-blue iOS-26 liquid glass Discord theme with ClearVision-style base imports.
  * @version 5.2.0
  * @description Deep-blue liquid glass Discord theme with ClearVision-style base imports.
  */
@@ -9,6 +11,31 @@
 @import url("https://raw.githubusercontent.com/silver-sand/silvernium.github.io/refs/heads/main/vencord.css");
 
 :root {
+  --slv-bg-0: #02050d;
+  --slv-bg-1: #07112a;
+  --slv-bg-2: #0d2150;
+  --slv-bg-3: #183575;
+
+  --slv-glass-a: rgba(232, 244, 255, 0.24);
+  --slv-glass-b: rgba(120, 167, 255, 0.16);
+  --slv-glass-c: rgba(8, 21, 52, 0.72);
+  --slv-glass-border: rgba(198, 228, 255, 0.38);
+  --slv-glass-edge: rgba(238, 248, 255, 0.58);
+
+  --slv-shadow: 0 14px 34px rgba(2, 8, 26, 0.62);
+  --slv-shadow-soft: 0 8px 22px rgba(25, 92, 221, 0.24);
+  --slv-radius: 18px;
+  --slv-pill: 999px;
+
+  /* hard override discord neutral grays into deep blue liquid tokens */
+  --background-primary: rgba(10, 20, 46, 0.4) !important;
+  --background-secondary: rgba(8, 17, 40, 0.46) !important;
+  --background-secondary-alt: rgba(8, 16, 38, 0.6) !important;
+  --background-tertiary: rgba(5, 11, 27, 0.58) !important;
+  --background-floating: rgba(9, 20, 48, 0.72) !important;
+  --channeltextarea-background: rgba(12, 25, 58, 0.55) !important;
+  --modal-background: rgba(8, 18, 43, 0.78) !important;
+  --bg-overlay-chat: rgba(5, 12, 29, 0.45) !important;
   --slv-bg-0: #03060f;
   --slv-bg-1: #08132a;
   --slv-bg-2: #0d1f45;
@@ -27,6 +54,9 @@
 
 /* brand readability */
 .info__2debe::after {
+  content: "Silvernium 5.3.0" !important;
+  color: #eef6ff !important;
+  text-shadow: 0 0 10px rgba(83, 154, 255, 0.65);
   content: "Silvernium 5.2.0" !important;
   color: #eaf4ff !important;
   text-shadow: 0 0 8px rgba(83, 154, 255, 0.56);
@@ -147,6 +177,20 @@
 
 :is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before {
   content: "Silvernium" !important;
+  color: #f2f8ff !important;
+  text-shadow: 0 0 10px rgba(83, 154, 255, 0.62);
+}
+
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after {
+  content: "5.3.0" !important;
+  color: #c8daf6 !important;
+}
+
+[class*="wordmarkWindows"]::after,
+[class*="wordmark"]::after {
+  content: "Silvernium" !important;
+  color: #edf6ff !important;
+  text-shadow: 0 0 9px rgba(83, 154, 255, 0.52);
   color: #eef6ff !important;
   text-shadow: 0 0 8px rgba(83, 154, 255, 0.56);
 }
@@ -183,6 +227,33 @@
 }
 
 /* deep-blue liquid background replacing flat gray */
+:is(html, body, .appMount, .bg__12180, .app_a3002d, .appMount__51fd7, [class*="bg__"]) {
+  background:
+    radial-gradient(63rem 36rem at 10% 14%, rgba(102, 174, 255, 0.24), transparent 60%),
+    radial-gradient(54rem 34rem at 88% 9%, rgba(123, 147, 255, 0.25), transparent 61%),
+    radial-gradient(45rem 26rem at 52% 104%, rgba(49, 107, 225, 0.36), transparent 70%),
+    linear-gradient(165deg, var(--slv-bg-0), var(--slv-bg-1) 36%, var(--slv-bg-2) 70%, var(--slv-bg-3)) !important;
+  background-attachment: fixed !important;
+}
+
+/* universal liquid glass surfaces for class hash churn */
+:is(
+  [class*="sidebar"],
+  [class*="chatContent"],
+  [class*="container"],
+  [class*="membersWrap"],
+  [class*="peopleColumn"],
+  [class*="nowPlayingColumn"],
+  [class*="contentRegion"],
+  [class*="privateChannels"],
+  [class*="panels"]
+) {
+  background: linear-gradient(154deg, var(--slv-glass-a), var(--slv-glass-b) 45%, var(--slv-glass-c) 88%) !important;
+  border: 1px solid color-mix(in srgb, var(--slv-glass-border) 78%, transparent) !important;
+  box-shadow: var(--slv-shadow-soft);
+}
+
+/* preserve shape specifically for major sections */
 :is(html, body, .appMount, .bg__12180, .app_a3002d, .appMount__51fd7) {
   background:
     radial-gradient(58rem 34rem at 12% 15%, rgba(95, 168, 255, 0.18), transparent 60%),
@@ -207,6 +278,20 @@
 .standardSidebarView__23e6b,
 .sidebarRegionScroller__23e6b,
 .contentRegion__23e6b {
+  border-radius: var(--slv-radius) !important;
+  backdrop-filter: blur(18px) saturate(152%);
+  -webkit-backdrop-filter: blur(18px) saturate(152%);
+  box-shadow: var(--slv-shadow) !important;
+}
+
+/* popouts/modals */
+:is(.menu_c1e9c4, .userPopoutOuter_c69a7b, .root__49fc1, .recentMentionsPopout__95796, .messagesPopoutWrap__45690, .container__3dde2, .popout_a16aea, [class*="popout"], [class*="modal"]) {
+  background: linear-gradient(152deg, rgba(212, 233, 255, 0.2), rgba(62, 95, 180, 0.28) 54%, rgba(12, 24, 57, 0.86)) !important;
+  border: 1px solid var(--slv-glass-border) !important;
+  border-radius: var(--slv-radius) !important;
+  box-shadow: var(--slv-shadow) !important;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   background: linear-gradient(154deg, var(--slv-glass-a), var(--slv-glass-b) 45%, var(--slv-glass-c) 88%) !important;
   border: 1px solid var(--slv-glass-border) !important;
   border-radius: var(--slv-radius) !important;
@@ -232,6 +317,12 @@
 /* floating adaptive top area */
 .title_f75fb0,
 .container__9293f .header_fd6364,
+.themed__9293f,
+[class*="title"],
+[class*="header"] {
+  background: linear-gradient(180deg, rgba(208, 229, 255, 0.15), rgba(26, 46, 99, 0.1)) !important;
+  border-bottom: 1px solid rgba(184, 220, 255, 0.24);
+  backdrop-filter: blur(12px) saturate(145%);
 .themed__9293f {
   background: linear-gradient(180deg, rgba(208, 229, 255, 0.12), rgba(26, 46, 99, 0.08)) !important;
   border-bottom: 1px solid rgba(184, 220, 255, 0.22);
@@ -239,6 +330,7 @@
 
 /* floating composer */
 .form_f75fb0 {
+  margin: 0 14px 10px;
   margin: 0 14px 9px;
   position: sticky;
   bottom: 8px;
@@ -249,6 +341,28 @@
 .channelTextArea_f75fb0,
 .scrollableContainer__74017,
 .themedBackground__74017,
+.wrapper__72c38,
+[class*="channelTextArea"],
+[class*="textArea"],
+[class*="scrollableContainer"] {
+  background: linear-gradient(152deg, rgba(196, 223, 255, 0.24), rgba(53, 94, 180, 0.27) 55%, rgba(12, 29, 74, 0.81)) !important;
+  border: 1px solid var(--slv-glass-edge) !important;
+  border-radius: var(--slv-pill) !important;
+  box-shadow: inset 0 1px 0 rgba(236, 246, 255, 0.38), var(--slv-shadow) !important;
+}
+
+/* glossy liquid controls */
+.lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5),
+.vc-btn-primary,
+.circleIconButton__5bc7e,
+.newMessagesBar__0f481,
+button[class*="lookFilled"],
+button[class*="button"] {
+  background: linear-gradient(130deg, #73cbff, #a6c5ff 56%, #86ebff) !important;
+  color: #041021 !important;
+  border: 1px solid rgba(225, 240, 255, 0.8) !important;
+  border-radius: var(--slv-pill) !important;
+  box-shadow: 0 12px 28px rgba(58, 131, 243, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 .wrapper__72c38 {
   background: linear-gradient(152deg, rgba(186, 216, 255, 0.22), rgba(51, 88, 168, 0.24) 55%, rgba(15, 31, 72, 0.8)) !important;
   border: 1px solid var(--slv-glass-edge) !important;
@@ -272,6 +386,11 @@
 .lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):active,
 .vc-btn-primary:active,
 .circleIconButton__5bc7e:active,
+.newMessagesBar__0f481:active,
+button[class*="lookFilled"]:active,
+button[class*="button"]:active {
+  transform: scale(0.95);
+  opacity: 0.86;
 .newMessagesBar__0f481:active {
   transform: scale(0.95);
   opacity: 0.84;
