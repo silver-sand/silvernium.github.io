@@ -1,3 +1,25 @@
+/*! Silvernium Vencord layer */
+.vc-card-base,
+.vc-addon-card,
+.vc-settings-quickActions-pill {
+  background: var(--hsl-card-shading) !important;
+  border: 1px solid transparent !important;
+}
+
+.vc-settings-quickActions-pill:hover,
+.vc-plugin-ui-elements-button:hover {
+  border-color: var(--hsl-main-color) !important;
+}
+
+.vc-btn-primary {
+  background: var(--hsl-main-color) !important;
+  border: none !important;
+  border-radius: 4px;
+}
+
+.vc-btn-primary:hover {
+  background: var(--hsl-hover-color) !important;
+}
 /*! Silvernium - local Vencord Addon layer */
 .vc-btn-primary{background:linear-gradient(130deg,#73cbff,#a6c5ff 56%,#86ebff)!important;border:1px solid rgba(225,240,255,.8)!important;color:#041021!important;border-radius:999px;box-shadow:0 12px 28px rgba(58,131,243,.44),inset 0 1px 0 rgba(255,255,255,.5)}
 .vc-btn-primary:hover{filter:brightness(1.05)}

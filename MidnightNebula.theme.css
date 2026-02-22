@@ -1,6 +1,8 @@
 /**
  * @name Silvernium iOS 26 Liquid Glass
  * @author silvernium
+ * @version 5.4.0
+ * @description ClearVision-style transparent base + deep-blue Liquid Glass overlay.
  * @version 5.3.0
  * @description Deep-blue iOS-26 liquid glass Discord theme with ClearVision-style base imports.
  * @version 5.2.0
@@ -449,6 +451,11 @@ button[class*="button"]:active {
   --streaming-color: #6a4bc2;
   --offline-color: #7f8797;
 
+  --lios-bg-0: #02040b;
+  --lios-bg-1: #050b1a;
+  --lios-bg-2: #09142d;
+  --lios-bg-3: #0e2047;
+
   --background-shading-percent: 100%;
   --background-image:
     radial-gradient(62rem 40rem at 12% 14%, rgba(83, 170, 255, 0.2), transparent 60%),
@@ -494,6 +501,7 @@ button[class*="button"]:active {
   --lios-glass-low: rgba(16, 30, 68, 0.68);
   --lios-glass-border: rgba(184, 220, 255, 0.34);
   --lios-glass-edge: rgba(221, 239, 255, 0.5);
+
   --lios-text: #f3f8ff;
   --lios-text-muted: #9ab3de;
   --lios-radius-xl: 24px;
@@ -506,6 +514,48 @@ button[class*="button"]:active {
   --lios-duration-medium: 340ms;
 }
 
+/* keep Silvernium branding while preserving clearvision-style placement */
+.info__2debe::after {
+  content: "Silvernium 5.4.0";
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before {
+  content: "Silvernium";
+  position: static;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-default);
+  order: 2;
+}
+
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after {
+  content: "5.4.0";
+  position: static;
+  margin-top: -5px;
+  margin-left: 5px;
+  font-family: var(--code-font);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  order: 3;
+}
+
+/* remove ClearVision nameplate remnants */
+[class*="wordmarkWindows"]::after,
+[class*="wordmark"]::after {
+  content: "Silvernium" !important;
+  letter-spacing: 0.2px;
+}
+
+[class*="wordmarkWindows"] > svg,
+[class*="wordmark"] > svg {
+  opacity: 0 !important;
+}
+
+/* deep static background */
 /* THEME SPECIFIC SHADING */
 :is(.theme-midnight, .theme-light .theme-midnight) {
   --background-shading: rgba(0, 0, 0, 0.82);
@@ -560,6 +610,14 @@ body,
 .bg__12180,
 .app_a3002d {
   background:
+    radial-gradient(62rem 40rem at 12% 14%, rgba(83, 170, 255, 0.2), transparent 60%),
+    radial-gradient(54rem 35rem at 88% 12%, rgba(122, 156, 255, 0.18), transparent 60%),
+    radial-gradient(46rem 28rem at 50% 102%, rgba(47, 101, 215, 0.26), transparent 72%),
+    linear-gradient(160deg, var(--lios-bg-0), var(--lios-bg-1) 38%, var(--lios-bg-2) 70%, var(--lios-bg-3)) !important;
+  color: var(--lios-text);
+}
+
+/* liquid panels */
     radial-gradient(55rem 35rem at 16% 18%, rgba(136, 210, 255, 0.2), transparent 55%),
     radial-gradient(52rem 30rem at 86% 12%, rgba(195, 166, 255, 0.22), transparent 58%),
     radial-gradient(40rem 22rem at 50% 100%, rgba(108, 163, 255, 0.16), transparent 70%),
@@ -577,6 +635,15 @@ body,
 .nowPlayingColumn__133bf,
 .panels_c48ade,
 .container_f369db {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(155deg, var(--lios-glass-top), var(--lios-glass-mid) 45%, var(--lios-glass-low) 84%) !important;
+  border: 1px solid var(--lios-glass-border);
+  border-radius: var(--lios-radius-xl);
+  backdrop-filter: blur(22px) saturate(155%);
+  -webkit-backdrop-filter: blur(22px) saturate(155%);
+  box-shadow: var(--lios-shadow-soft);
+  transition: box-shadow var(--lios-duration-medium) var(--lios-ease-smooth);
   background: linear-gradient(145deg, var(--lios-glass-strong), var(--lios-glass)) !important;
   border: 1px solid var(--lios-glass-border);
   border-radius: var(--lios-radius-xl);
@@ -604,6 +671,14 @@ body,
   height: 66%;
   pointer-events: none;
   border-radius: inherit;
+  background: linear-gradient(167deg, rgba(229, 244, 255, 0.44), rgba(139, 192, 255, 0.14) 36%, transparent 72%);
+  filter: blur(0.5px);
+  opacity: 0.34;
+}
+
+/* Smaller composer */
+.form_f75fb0 {
+  margin: 0 14px 8px;
   background: linear-gradient(167deg, rgba(229, 244, 255, 0.52), rgba(139, 192, 255, 0.2) 36%, transparent 72%);
   filter: blur(0.5px);
   opacity: 0.4;
@@ -617,15 +692,36 @@ body,
   z-index: 3;
 }
 
+.channelTextArea_f75fb0 {
+  max-width: min(800px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
 .channelTextArea_f75fb0,
 .scrollableContainer__74017,
 .themedBackground__74017 {
   background: linear-gradient(152deg, rgba(165, 204, 255, 0.2), rgba(40, 73, 149, 0.24) 52%, rgba(14, 28, 65, 0.74)) !important;
+  border-radius: 16px !important;
   border-radius: 999px !important;
   border: 1px solid var(--lios-glass-edge);
   box-shadow: inset 0 1px 0 rgba(230, 243, 255, 0.38), var(--lios-shadow-soft);
 }
 
+.scrollableContainer__74017 { min-height: 34px; }
+
+/* Flicker fix */
+.interactive_bf202d,
+.channel__972a0,
+.modeSelected__2ea32 .link__2ea32,
+.mention,
+.item_b3f026 {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition:
+    background var(--lios-duration-fast) var(--lios-ease-smooth),
+    border-color var(--lios-duration-fast) var(--lios-ease-smooth),
+    box-shadow var(--lios-duration-fast) var(--lios-ease-smooth),
+    opacity var(--lios-duration-fast) var(--lios-ease-smooth);
 .lookFilled__201d5.colorBrand__201d5,
 .rolePillBorder__5f725,
 .numberBadge__2b1f5,
@@ -642,6 +738,10 @@ body,
 .modeSelected__2ea32 .link__2ea32,
 .interactive_bf202d:hover,
 .channel__972a0:hover,
+.mention,
+.item_b3f026[aria-selected="true"] {
+  background: linear-gradient(145deg, rgba(85, 162, 255, 0.3), rgba(117, 161, 255, 0.24) 54%, rgba(36, 66, 141, 0.32)) !important;
+  border-color: rgba(171, 208, 255, 0.36);
 .mention {
   background: linear-gradient(145deg, rgba(85, 162, 255, 0.3), rgba(117, 161, 255, 0.24) 54%, rgba(36, 66, 141, 0.32)) !important;
   border: 1px solid rgba(171, 208, 255, 0.36);
@@ -698,6 +798,71 @@ body,
   border-radius: var(--lios-radius-sm);
 }
 
+/* channel behavior close to ClearVision */
+.link__2ea32,
+.interactive__972a0 {
+  transition: all .15s ease-in-out;
+  border-radius: 4px;
+  position: relative;
+}
+
+.link__2ea32::before,
+.interactive__972a0::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  transition: all .15s ease-in-out;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.wrapper__2ea32.modeSelected__2ea32 .link__2ea32,
+.interactive__972a0.interactiveSelected__972a0 {
+  background-color: transparent !important;
+}
+
+.wrapper__2ea32.modeSelected__2ea32 .link__2ea32::before,
+.interactive__972a0.interactiveSelected__972a0::before {
+  right: 0;
+  background: var(--hsl-main-color);
+  animation: cv-channel-select .3s ease-in-out;
+}
+
+/* squishy buttons */
+.lookFilled__201d5.colorBrand__201d5,
+.rolePillBorder__5f725,
+.numberBadge__2b1f5,
+.newMessagesBar__0f481,
+.circleIconButton__5bc7e,
+button,
+.vc-btn-primary {
+  background: linear-gradient(132deg, var(--main-color), #93b6ff 58%, #7ce1ff) !important;
+  color: #041229 !important;
+  border: 1px solid rgba(216, 236, 255, 0.65);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(44, 126, 255, 0.38);
+  transform: scale(1);
+  opacity: 1;
+  transition:
+    transform 140ms var(--lios-ease-smooth),
+    box-shadow 180ms var(--lios-ease-smooth),
+    filter 180ms var(--lios-ease-smooth),
+    opacity 180ms ease;
+}
+
+.lookFilled__201d5.colorBrand__201d5:active,
+.rolePillBorder__5f725:active,
+.numberBadge__2b1f5:active,
+.newMessagesBar__0f481:active,
+.circleIconButton__5bc7e:active,
+button:active,
+.vc-btn-primary:active {
+  transform: scale(0.94);
+  opacity: 0.82;
+  filter: saturate(1.12) brightness(0.96);
 .userPopoutOuter_c69a7b,
 .root__49fc1,
 .menu_c1e9c4,
