@@ -1,3 +1,4 @@
+/*! Silvernium - Vencord Addon local */
 /*! Silvernium - local Vencord Addon base */
 .vc-btn-primary{background:var(--hsl-main-color);border-color:rgba(0,0,0,0);border-radius:4px}
 .vc-btn-primary:hover{background:var(--hsl-hover-color);border-color:rgba(0,0,0,0)}
