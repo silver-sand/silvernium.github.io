@@ -7,7 +7,7 @@
 
 /* Local base (editable in this repo) */
 @import url("https://raw.githubusercontent.com/silver-sand/silvernium.github.io/refs/heads/main/main.css");
-@import url("./vencord.css");
+@import url("https://raw.githubusercontent.com/silver-sand/silvernium.github.io/refs/heads/main/vencord.css");
 
 /* Silvernium identity + LiquidOS polish */
 .info__2debe::after {
