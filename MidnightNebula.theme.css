@@ -1,0 +1,102 @@
+/**
+ * @name Silvernium iOS 26 Liquid Glass
+ * @author silvernium
+ * @version 5.1.0
+ * @description iOS 26 Liquid Glass style theme using editable ClearVision-like base and Vencord layer.
+ */
+
+/* Requested raw imports */
+@import url("https://raw.githubusercontent.com/silver-sand/silvernium.github.io/refs/heads/main/main.css");
+@import url("https://raw.githubusercontent.com/silver-sand/silvernium.github.io/refs/heads/main/vencord.css");
+
+/* iOS 26 Liquid Glass overlay */
+:root {
+  --ios26-glass-top: rgba(210, 230, 255, 0.22);
+  --ios26-glass-mid: rgba(100, 148, 230, 0.14);
+  --ios26-glass-low: rgba(12, 24, 58, 0.72);
+  --ios26-glass-border: rgba(184, 220, 255, 0.34);
+  --ios26-glass-edge: rgba(228, 242, 255, 0.5);
+  --ios26-shadow: 0 12px 35px rgba(3, 9, 28, 0.56);
+  --ios26-radius-lg: 16px;
+  --ios26-radius-pill: 999px;
+}
+
+/* Readable Silvernium nameplate */
+.info__2debe::after { content: "Silvernium 5.1.0" !important; color: #e6f1ff !important; text-shadow: 0 0 7px rgba(76, 152, 255, 0.55); }
+:is(.theme-dark,.theme-light):not(.platform-osx) .leading_c38106::before { content: "Silvernium" !important; color: #edf5ff !important; text-shadow: 0 0 8px rgba(73, 147, 255, 0.5); }
+:is(.theme-dark,.theme-light):not(.platform-osx) .leading_c38106::after { content: "5.1.0" !important; color: #bfd1f1 !important; }
+
+[class*="wordmarkWindows"]::after,
+[class*="wordmark"]::after { content: "Silvernium" !important; color: #e6f1ff !important; }
+[class*="wordmarkWindows"] > svg,
+[class*="wordmark"] > svg { opacity: 0 !important; }
+
+/* Floating, translucent, adaptive surfaces */
+.sidebar_a4d4d9,
+.privateChannels__35e86,
+.chat_f75fb0,
+.container__133bf,
+.membersWrap_c8ffbb,
+.nowPlayingColumn__133bf,
+.container__551b0,
+.menu_c1e9c4,
+.root__49fc1,
+.userPopoutOuter_c69a7b,
+.messagesPopoutWrap__45690,
+.recentMentionsPopout__95796 {
+  background: linear-gradient(155deg, var(--ios26-glass-top), var(--ios26-glass-mid) 44%, var(--ios26-glass-low) 86%) !important;
+  border: 1px solid var(--ios26-glass-border) !important;
+  border-radius: var(--ios26-radius-lg) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: var(--ios26-shadow);
+}
+
+/* Floating adaptive tab-like header + composer */
+.title_f75fb0,
+.container__9293f .header_fd6364 {
+  background: linear-gradient(180deg, rgba(204, 228, 255, 0.12), rgba(20, 42, 95, 0.08)) !important;
+  border-bottom: 1px solid rgba(184, 220, 255, 0.2);
+}
+
+.form_f75fb0 {
+  margin: 0 16px 10px;
+  position: sticky;
+  bottom: 8px;
+  z-index: 4;
+}
+
+.channelTextArea__74017,
+.channelTextArea_f75fb0,
+.scrollableContainer__74017,
+.themedBackground__74017 {
+  background: linear-gradient(152deg, rgba(182, 214, 255, 0.22), rgba(48, 86, 165, 0.24) 52%, rgba(16, 32, 72, 0.76)) !important;
+  border: 1px solid var(--ios26-glass-edge) !important;
+  border-radius: var(--ios26-radius-pill) !important;
+  box-shadow: inset 0 1px 0 rgba(235, 246, 255, 0.4), var(--ios26-shadow);
+}
+
+/* Buttons & controls: glossy/floating */
+.lookFilled__201d5:is(.colorBrand__201d5,.colorPrimary__201d5),
+.vc-btn-primary,
+.circleIconButton__5bc7e,
+.newMessagesBar__0f481 {
+  background: linear-gradient(130deg, #68c0ff, #96b9ff 58%, #7de4ff) !important;
+  color: #071325 !important;
+  border: 1px solid rgba(222, 239, 255, 0.72) !important;
+  border-radius: var(--ios26-radius-pill) !important;
+  box-shadow: 0 12px 30px rgba(57, 132, 244, 0.42);
+  transition: transform 130ms ease, opacity 160ms ease, filter 160ms ease;
+}
+
+.lookFilled__201d5:is(.colorBrand__201d5,.colorPrimary__201d5):active,
+.vc-btn-primary:active,
+.circleIconButton__5bc7e:active,
+.newMessagesBar__0f481:active {
+  transform: scale(0.95);
+  opacity: 0.84;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
