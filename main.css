@@ -1,0 +1,47 @@
+/* Silvernium local main.css (editable ClearVision-style base, deep-blue tuned) */
+@keyframes cv-channel-select{from{right:100%}to{right:0}}
+@keyframes cv-card-loading{0%{opacity:.66}50%{opacity:.33}100%{opacity:.66}}
+
+:root {
+  --main-color:#4fa8ff;
+  --hover-color:#3b8ae6;
+  --success-color:#43b581;
+  --danger-color:#982929;
+  --online-color:#43b581;
+  --idle-color:#faa61a;
+  --dnd-color:#982929;
+  --streaming-color:#593695;
+  --offline-color:#808080;
+
+  --background-shading-percent:100%;
+  --background-image:
+    radial-gradient(58rem 34rem at 12% 15%, rgba(95, 168, 255, 0.18), transparent 60%),
+    radial-gradient(52rem 30rem at 88% 12%, rgba(120, 145, 255, 0.2), transparent 60%),
+    radial-gradient(40rem 24rem at 50% 103%, rgba(42, 92, 198, 0.28), transparent 72%),
+    linear-gradient(160deg, #03060f, #08132a 40%, #0d1f45 72%, #13295b);
+  --background-position:center;
+  --background-size:cover;
+  --background-attachment:fixed;
+  --background-filter:saturate(calc(var(--saturation-factor,1) * 1.08));
+
+  --main-font:"gg sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --code-font:Consolas,"gg mono","Liberation Mono",Menlo,Courier,monospace;
+
+  --channel-selected-bg:var(--main-color);
+
+  --hsl-main-color:hsl(from var(--main-color) h calc(var(--saturation-factor,1) * s) l/alpha);
+  --hsl-hover-color:hsl(from var(--hover-color) h calc(var(--saturation-factor,1) * s) l/alpha);
+}
+
+:is(.theme-dark,.theme-light .theme-dark){--background-shading:rgba(0,0,0,.44);--card-shading:rgba(0,0,0,.28);--popout-shading:rgba(0,0,0,.64);--modal-shading:rgba(0,0,0,.46);--input-shading:rgba(255,255,255,.07)}
+:is(.theme-midnight,.theme-light .theme-midnight){--background-shading:rgba(0,0,0,.78);--card-shading:rgba(0,0,0,.42);--popout-shading:rgba(0,0,0,.82);--modal-shading:rgba(0,0,0,.64);--input-shading:rgba(255,255,255,.06)}
+
+:root{--hsl-background-shading:hsl(from var(--background-shading) h calc(var(--saturation-factor,1) * s) l/alpha);--hsl-card-shading:hsl(from var(--card-shading) h calc(var(--saturation-factor,1) * s) l/alpha);--hsl-popout-shading:hsl(from var(--popout-shading) h calc(var(--saturation-factor,1) * s) l/alpha);--hsl-modal-shading:hsl(from var(--modal-shading) h calc(var(--saturation-factor,1) * s) l/alpha);--hsl-input-shading:hsl(from var(--input-shading) h calc(var(--saturation-factor,1) * s) l/alpha);--hsl-input-border-shading:hsl(from var(--hsl-input-shading) h s l/.1)}
+
+:is(html,body,.appMount__51fd7){background:none}
+.app_a3002d{background:var(--hsl-background-shading);color:rgba(0,0,0,0)}
+.bg__960e4{background:var(--background-image) var(--background-position)/var(--background-size) no-repeat;background-attachment:var(--background-attachment);filter:var(--background-filter);z-index:-1}
+
+.chat_f75fb0{background:rgba(0,0,0,0)}
+.chatContent_f75fb0,.scroller_f35c3c{background:hsl(from var(--hsl-background-shading) h s l/calc(var(--background-shading-percent) * .4))}
+.menu_c1e9c4{background:var(--hsl-popout-shading);border:none}
