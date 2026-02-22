@@ -1,5 +1,9 @@
 # Silvernium iOS 26 ClearLiquid (Vencord)
 
+Theme structure currently in this repo:
+
+- `MidnightNebula.theme.css` is the entry file.
+- It imports hosted files via raw GitHub URLs:
 You now have the exact structure you asked for:
 
 - `MidnightNebula.theme.css` imports
@@ -8,6 +12,10 @@ You now have the exact structure you asked for:
 
 ## Notes
 
+- `main.css` is the editable ClearVision-style base with deep-blue liquid background tokens.
+- `vencord.css` is the editable Vencord layer.
+- `MidnightNebula.theme.css` contains the Liquid Glass overlay and Silvernium branding/readability fixes.
+- If the theme looks like default Discord, make sure the raw GitHub URLs are serving the latest `main.css` and `vencord.css` from your `silvernium.github.io` repo.
 - `main.css` is your local editable ClearVision-style base.
 - `vencord.css` is your local editable Vencord layer.
 - `MidnightNebula.theme.css` adds iOS 26 liquid-glass overlays and Silvernium branding fixes.
