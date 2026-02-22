@@ -1,0 +1,12 @@
+/**
+ * @name Silvernium iOS 26 Liquid Glass
+ * @author silvernium
+ * @version 4.2.0
+ * @description ClearVision-like transparent/translucent Silvernium theme, modular and local.
+ */
+
+@import url("./css/00-settings.css");
+@import url("./css/10-layout.css");
+@import url("./css/20-interactions.css");
+@import url("./css/30-branding.css");
+@import url("./css/40-accessibility.css");
